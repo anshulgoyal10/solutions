@@ -90,6 +90,13 @@ VMAs = {
     'SOLUTION Increased Milk Yield': vma.VMA(
         filename=THISDIR.joinpath("vma_data", "SOLUTION_Increased_Milk_Yield.csv"),
         use_weight=False),
+
+    # This is a manually added VMA to get around an issue with importing this solution module: During import, function
+    # _substitute_vma() in model/advanced_controls.py throws an exception because this VMA is not generated here by
+    # the model extraction notebook Improved_Cattle_Feed_Extraction.ipynb. The source of that issue should be found so
+    # that this potentially dangerous work-around can be removed.
+    'SOLUTION Operating Cost per Functional Unit per Annum': vma.VMA(
+        filename=None, use_weight=False, fixed_summary=(1e-20, 1e-20, 1e-20)),
 }
 vma.populate_fixed_summaries(vma_dict=VMAs, filename=THISDIR.joinpath('vma_data', 'VMA_info.csv'))
 
