@@ -77,7 +77,7 @@
     "emissions_grid_range": "Mean",
     "source_until_2014": "ALL SOURCES",
     "ref_source_post_2014": "ALL SOURCES",
-    "pds_source_post_2014": "Drawdown TAM: ALL SOURCES",
+    "pds_source_post_2014": "ALL SOURCES",
     "ref_base_adoption": {
         "World": 9134560880.3102,
         "OECD90": 6236702146.89029,

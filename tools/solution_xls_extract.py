@@ -710,6 +710,7 @@ def normalize_source_name(sourcename):
         'Drawdown TAM: Conservative Cases': 'Conservative Cases',
         'Drawdown TAM: Ambitious Cases': 'Ambitious Cases',
         'Drawdown TAM: Maximum Cases': 'Maximum Cases',
+        'Drawdown TAM: ALL SOURCES': 'ALL SOURCES',
         'Drawdown Projections based on adjusted IEA data (ETP 2012) on projected growth in each year, and recent sales Data (IEA - ETP 2016)': 'Drawdown Projections based on adjusted IEA data (ETP 2012) on projected growth in each year, and recent sales Data (IEA - ETP 2016)',
         'ITDP/UC Davis (2014)  A Global High Shift Scenario Updated Report Data - Baseline Scenario': 'ITDP/UC Davis 2014 Global High Shift Baseline',
         'ITDP/UC Davis (2014)  A Global High Shift Scenario Updated Report Data - HighShift Scenario': 'ITDP/UC Davis 2014 Global High Shift HighShift',
