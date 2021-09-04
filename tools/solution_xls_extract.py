@@ -725,6 +725,8 @@ def normalize_source_name(sourcename):
         'FAO 2015 (Sum of all regions)': 'FAO 2015',  # Afforestation Drawdown 2020
         'FAO 2010 (Sum of all regions)': 'FAO 2010',  # Bamboo Drawdown 2020
     }
+    if not sourcename:  # don't do anything with empty data
+        return sourcename
     normalized = sourcename.replace("'", "").replace('\n', ' ').strip()
     if normalized in special_cases:
         return special_cases[normalized]
@@ -1496,10 +1498,7 @@ def extract_vmas(f, wb, outputdir):
     if not os.path.exists(vma_dir_path):
         os.mkdir(vma_dir_path)
     vma_r = VMAReader(wb)
-    if 'Variable Meta-analysis-DD' in wb.sheetnames:
-        vmas = vma_r.read_xls(csv_path=vma_dir_path, alt_vma=True)
-    else:
-        vmas = vma_r.read_xls(csv_path=vma_dir_path)
+    vmas = vma_r.read_xls(csv_path=vma_dir_path)
     f.write("VMAs = {\n")
     for _, row in vmas.iterrows():
         f.write(f"    '{row['Title on xls']}': vma.VMA(\n")

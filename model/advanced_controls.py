@@ -735,6 +735,27 @@ class AdvancedControls:
         'tooltip': ("t C storage in Protected Landtype"),
         'excelref': '',
         })
+    
+    # NEW ADDITIONS
+    # These do not represent quantities that were part of the original spreadsheets, but are used in 
+    # for communication from external sources
+
+    # Value is a URI that will return a csv for a custom source to use in place of the REF TAM,
+    # overriding whatever else is defined for this solution/scenario
+    ref_tam_custom_source: str = None
+
+    # Value is a URI that will return a csv for a custom source to use in place of the PDS TAM,
+    # overriding whatever else is defined for this solution/scenario
+    pds_tam_custom_source: str = None
+
+    # Value is a URI that will return a csv for a custom source to use in place of the REF Adoption (as a Fully Custom Adoption),
+    # overriding whatever else is defined for this solution/scenario
+    ref_adoption_custom_source: str = None
+
+    # Value is a URI that will return a csv for a custom source to use in place of the PDS Adoption (as a Fully Custom Adoption),
+    # overriding whatever else is defined for this solution/scenario   
+    pds_adoption_custom_source: str = None
+
 
     def __post_init__(self):
         object.__setattr__(self, 'incorrect_cached_values', {})
@@ -950,7 +971,8 @@ class AdvancedControls:
     def write_to_json_file(self):
         jsfilenew = self.jsfile + '.new'
         d = dataclasses.asdict(self)
-        for rem in ['vmas', 'js', 'jsfile']:
+        #for rem in ['vmas', 'js', 'jsfile']:
+        for rem in ['vmas', 'jsfile']:
             del d[rem]
         with open(jsfilenew, 'w') as f:
             json.dump(d, f)
@@ -984,14 +1006,18 @@ def load_scenarios_from_json(directory, vmas):
     result = {}
     for filename in glob.glob(str(directory.joinpath('*.json'))):
         with open(filename, 'r') as fid:
-            j = json.loads(fid.read())
-            js = j.copy()
-            js['vmas'] = vmas
-            js['js'] = j
-            js['jsfile'] = str(filename)
-            a = AdvancedControls(**js)
+            jd = json.loads(fid.read())
+            a = ac_from_dict(jd, vmas, filename)
             result[a.name] = a
     return result
+
+def ac_from_dict(data: dict, vmas, filename="") -> AdvancedControls:
+    """Create an AdvancedControls object from a dictionary of values, as retrieved from a scenario json file."""
+    d = data.copy()
+    d['vmas'] = vmas
+    d['jsfile'] = str(filename)
+    return AdvancedControls(**d)
+
 
 def get_vma_for_param(param):
     for field in dataclasses.fields(AdvancedControls):

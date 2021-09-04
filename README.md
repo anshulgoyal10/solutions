@@ -79,7 +79,7 @@ A more minimal environment is available for deployment using [pip](https://pip.p
       $ pip install -r requirements.txt
 ```
 
-(Only recent versions of python3 are supported.)
+Python 3.9 is recommended.
 
 
 ## Using Project Drawdown Solutions as a package
@@ -104,7 +104,7 @@ questions you have.
 
 ## Contributing
 We would love to have your help.
-Please see [CONTRIBUTING.md](Contributing.md) for guidelines for contributing to this project.
+Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines for contributing to this project.
 
 ## Acknowledgements
 
