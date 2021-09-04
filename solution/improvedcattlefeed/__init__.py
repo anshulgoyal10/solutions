@@ -114,9 +114,9 @@ scenarios = ac.load_scenarios_from_json(directory=THISDIR.joinpath('ac'), vmas=V
 
 # These are the "default" scenarios to use for each of the drawdown categories.
 # They should be set to the most recent "official" set"
-PDS1 = "NOT SET"
-PDS2 = "NOT SET"
-PDS3 = "NOT SET"
+PDS1 = "PDS-28p2050-low7scen"
+PDS2 = "PDS-45p2050-avg7scen"
+PDS3 = "PDS-62p2050-high7scen"
 
 class Scenario(scenario.Scenario):
     name = name
