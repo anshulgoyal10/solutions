@@ -2,7 +2,7 @@
     "name": "PDS-45p2050-avg7scen",
     "solution_category": "reduction",
     "vmas": "VMAs",
-    "description": "Description:",
+    "description": "Average of the 7 scenarios. Assumes a 45% adoption in 2050 followign a linear increase from 21% in 2014. Total Emissions Reduction is 15 GtCO2e (2020-2050)",
     "report_start_year": 2020,
     "report_end_year": 2050,
     "conv_2014_cost": 0.0,

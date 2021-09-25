@@ -2,7 +2,7 @@
     "name": "PDS-28p2050-low7scen",
     "solution_category": "reduction",
     "vmas": "VMAs",
-    "description": "Description:",
+    "description": "Low Bound of Adoption, with 28% adoption in 2050 following a linear increase from 21% in 2014. Total Emissions Reduction 4.4 Gt CO2e",
     "report_start_year": 2020,
     "report_end_year": 2050,
     "conv_2014_cost": 0.0,
